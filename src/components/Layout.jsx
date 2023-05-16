@@ -14,6 +14,12 @@ const Layout = ({ children }) => {
           <li>
             <Link href="/csr">Client Side Rendering</Link>
           </li>
+          <li>
+            <Link href="/ssr">Server Side Rendering</Link>
+          </li>
+          <li>
+            <Link href="/ssg">Static Side Generation</Link>
+          </li>
         </ul>
       </nav>
       {children}

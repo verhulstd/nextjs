@@ -25,9 +25,11 @@ const Detail = () => {
     <>
       <h1>Detail of Cocktail using CSR</h1>
       {cocktail.loading && <p>LOADING...</p>}
-      {cocktail.data && (
+      {cocktail.data.strDrink && (
         <>
-          <h2>{cocktail.data.strDrink}</h2>
+          <h2>
+            {cocktail.data.strDrink} - {router.query.slug.split("-")[0]}
+          </h2>
           <img src={cocktail.data.strDrinkThumb} alt={cocktail.data.strDrink} />
           <p>{cocktail.data.strInstructions}</p>
         </>
