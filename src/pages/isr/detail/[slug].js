@@ -32,7 +32,6 @@ export async function getStaticPaths() {
       };
     }),
     fallback: true,
-    revalidate: 60 * 60 * 24,
   };
 }
 
@@ -46,6 +45,7 @@ export async function getStaticProps({ params }) {
     props: {
       cocktail: drinks[0],
     },
+    revalidate: 60 * 60 * 24,
   };
 }
 
