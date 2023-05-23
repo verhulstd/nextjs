@@ -19,7 +19,7 @@ const Friends = ({ friends }) => {
   };
   return (
     <div>
-      <h1>Data from mysql</h1>
+      <h1>Data from mysql 2.0</h1>
       <div>
         {friends.map(({ id, name, age, hobbies }) => (
           <details key={id}>
