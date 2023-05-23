@@ -1,6 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
 import Link from "next/link";
 import { slug } from "@/helpers";
+import Image from "next/image";
 const index = ({ cocktails }) => {
   return (
     <div>
@@ -21,7 +22,7 @@ const index = ({ cocktails }) => {
         {cocktails.map(({ idDrink, strDrinkThumb, strDrink }) => (
           <article key={idDrink}>
             <Link href={`/ssg/detail/${idDrink}-${slug(strDrink)}`}>
-              <img src={strDrinkThumb} alt={strDrink} />
+              <img src={strDrinkThumb} alt="" />
               <p>{strDrink}</p>
             </Link>
           </article>

@@ -9,3 +9,6 @@ export const slug = (str) =>
     locale: "vi", // language code of the locale to use
     trim: true, // trim leading and trailing replacement chars, defaults to `true`
   });
+
+const NestHydrationJS = require("nesthydrationjs")();
+export const nest = NestHydrationJS.nest;

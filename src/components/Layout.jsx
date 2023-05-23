@@ -18,7 +18,13 @@ const Layout = ({ children }) => {
             <Link href="/ssr">Server Side Rendering</Link>
           </li>
           <li>
-            <Link href="/ssg">Static Side Generation</Link>
+            <Link href="/ssg">Static Site Generation</Link>
+          </li>
+          <li>
+            <Link href="/isr">Incremental Static Regeneration</Link>
+          </li>
+          <li>
+            <Link href="/friends">Mysql Friends + api page</Link>
           </li>
         </ul>
       </nav>

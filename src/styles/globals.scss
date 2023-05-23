@@ -4,7 +4,8 @@ main {
   nav ul {
     display: flex;
     height: max-content;
-    gap: 3rem;
+    gap: 1rem;
+    list-style-type: none;
   }
   .cocktails {
     display: flex;
