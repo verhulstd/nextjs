@@ -5,9 +5,9 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "s3.syntradeveloper.be",
+        hostname: "images.unsplash.com",
         port: "",
-        pathname: "/images/*",
+        pathname: "/*",
       },
     ],
   },
