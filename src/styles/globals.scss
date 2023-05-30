@@ -3,9 +3,33 @@ main {
   // max-width: 1200px;
   nav ul {
     display: flex;
+    flex-wrap: wrap;
     height: max-content;
-    gap: 1rem;
+    gap: 0.5rem;
     list-style-type: none;
+    a {
+      white-space: nowrap;
+      padding: 5px;
+      background-color: yellow;
+      border-radius: 5px;
+    }
+  }
+  ol {
+    display: flex;
+    gap: 2rem;
+    list-style-type: none;
+    li {
+      a {
+        padding: 5px;
+        background-color: orange;
+        border-radius: 5px;
+        text-decoration: none;
+        color: black;
+        &.active {
+          background-color: green;
+        }
+      }
+    }
   }
   .cocktails {
     display: flex;

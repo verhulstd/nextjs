@@ -1,10 +1,12 @@
 import db from "@/db";
 import { nest } from "@/helpers";
 import { useState } from "react";
+// import { useRouter } from "next/router";
 
 const Friends = ({ friends }) => {
   const [input, setInput] = useState("");
   const [area, setArea] = useState("");
+  // const { locale } = useRouter();
   const submitHandler = async (e) => {
     e.preventDefault();
     await fetch("/api/mail", {
@@ -58,7 +60,7 @@ const Friends = ({ friends }) => {
 
 export default Friends;
 
-export async function getStaticProps() {
+export async function getStaticProps({ locale }) {
   const friendsData = await db("friends_has_hobbies")
     .join("friends", "friends.id", "friends_has_hobbies.friends_id")
     .join("hobbies", "hobbies.id", "friends_has_hobbies.hobbies_id")
@@ -67,7 +69,9 @@ export async function getStaticProps() {
       "friends.name",
       "friends.age",
       "friends.image",
-      "hobbies.hobby",
+      db.raw(
+        `COALESCE(NULLIF(hobbies.hobby_${locale}, ''),  hobby_nl) AS hobby`
+      ),
       "hobbies.id AS hobbyId"
     );
 
