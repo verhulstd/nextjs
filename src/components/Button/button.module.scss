@@ -1,0 +1,17 @@
+.btn{
+    background-color: purple;
+    color: white;
+    border-radius: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    &.active{
+        background-color: green;
+    }
+    &.disabled{
+        cursor: not-allowed;
+        opacity: .4;
+    }
+    &.secondary{
+        border: 2px solid yellow;
+    }
+}

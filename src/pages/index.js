@@ -1,7 +1,15 @@
+import { Button, Message } from "@/components";
+
 const index = () => {
   return (
     <>
       <h1>home page</h1>
+      <Button>click me</Button>
+      <Button active secondary>
+        click me
+      </Button>
+      <Message>test</Message>
+      <Button disabled={true}>click me</Button>
       <p>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore ullam,
         magnam quo optio recusandae repudiandae alias in molestiae nesciunt
