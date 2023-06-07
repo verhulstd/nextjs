@@ -1,7 +1,10 @@
+import { useUser } from "@/helpers";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import Userfront from "@userfront/react";
 const Layout = ({ children }) => {
   const { locale, locales, asPath } = useRouter();
+  const user = useUser(Userfront);
   return (
     <main>
       <nav>
@@ -40,6 +43,33 @@ const Layout = ({ children }) => {
             </Link>
           </li>
         ))}
+      </ol>
+      <ol>
+        {!user?.username && (
+          <li>
+            <Link href="/auth/login">login</Link>
+          </li>
+        )}
+        {!user?.username && (
+          <li>
+            <Link href="/auth/reset">reset</Link>
+          </li>
+        )}
+        {!user?.username && (
+          <li>
+            <Link href="/auth/signup">register</Link>
+          </li>
+        )}
+        {user?.username && (
+          <li>
+            <Link href="/auth/logout">logout</Link>
+          </li>
+        )}
+        {user?.username && (
+          <li>
+            <Link href="/auth/profile">{user.name}</Link>
+          </li>
+        )}
       </ol>
       {children}
     </main>

@@ -1,6 +1,6 @@
 import { Button, Message } from "@/components";
-
-const index = () => {
+import Userfront from "@userfront/react";
+const Index = () => {
   return (
     <>
       <h1>home page</h1>
@@ -20,4 +20,4 @@ const index = () => {
   );
 };
 
-export default index;
+export default Index;

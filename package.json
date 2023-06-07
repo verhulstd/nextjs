@@ -9,14 +9,17 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@userfront/react": "^0.3.3",
     "clsx": "^1.2.1",
     "eslint": "8.40.0",
     "eslint-config-next": "13.4.2",
+    "jsonwebtoken": "^9.0.0",
     "knex": "^2.4.2",
     "mysql2": "^3.3.2",
     "nesthydrationjs": "^2.0.0",
     "next": "13.4.2",
     "nodemailer": "^6.9.2",
+    "nookies": "^2.5.2",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "sass": "^1.62.1",
