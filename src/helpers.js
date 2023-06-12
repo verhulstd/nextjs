@@ -2,7 +2,7 @@ import slugify from "slugify";
 import { useRouter } from "next/router";
 import translations from "./i18n";
 import { useState, useEffect } from "react";
-import nookies from "nookies";
+import nookies, { parseCookies } from "nookies";
 const jwt = require("jsonwebtoken");
 
 export const slug = (str) =>
@@ -38,12 +38,12 @@ export const useUser = (UserFront) => {
 
 //voor in serversideprops
 export const securePage = (ctx) => {
-  console.log("checkin again");
   const cookies = nookies.get(ctx);
   const token = cookies[`access.${process.env.NEXT_PUBLIC_USERFRONTID}`];
   //if token does not exist
   if (!token) {
     redirectToLogin(ctx);
+    return null;
   }
   const verifiedPayload = jwt.verify(
     token,
@@ -55,6 +55,7 @@ export const securePage = (ctx) => {
   //if token is invalid
   if (!verifiedPayload) {
     redirectToLogin(ctx);
+    return null;
   } else {
     return verifiedPayload;
   }
@@ -66,3 +67,27 @@ function redirectToLogin(ctx) {
   res.statusCode = 302;
   res.end();
 }
+
+export const secureApi = (req, res) => {
+  const cookies = parseCookies({ req });
+  //token in cookies or in header?
+  const token =
+    cookies[`access.${process.env.NEXT_PUBLIC_USERFRONTID}`] ||
+    req.headers.authorization?.split(" ")[1];
+  if (token) {
+    try {
+      const verifiedPayload = jwt.verify(
+        token,
+        Buffer.from(process.env.CERTIFICATE, "base64"),
+        {
+          algorithms: ["RS256"],
+        }
+      );
+      return verifiedPayload;
+    } catch (error) {
+      res.status(401).send({ error: "Unauthorized access" });
+    }
+  } else {
+    res.status(401).send({ error: "Unauthorized access" });
+  }
+};

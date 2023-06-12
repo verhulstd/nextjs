@@ -1,5 +1,5 @@
 import { Button, Message } from "@/components";
-import Userfront from "@userfront/react";
+
 const Index = () => {
   return (
     <>

@@ -30,6 +30,11 @@ const Layout = ({ children }) => {
           <li>
             <Link href="/friends">Mysql Friends + api page</Link>
           </li>
+          {user?.userUuid && (
+            <li>
+              <Link href="/secured">secured page</Link>
+            </li>
+          )}
         </ul>
       </nav>
       <ol>

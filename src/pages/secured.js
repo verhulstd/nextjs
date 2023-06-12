@@ -15,6 +15,11 @@ export default secured;
 
 export async function getServerSideProps(ctx) {
   const user = securePage(ctx);
+  // const hobbies_van_aangemelde_gebruiker = await db
+  //   .select("*")
+  //   .from("hobbies")
+  //   .where("ext_user_id", user.userUuid);
+  // console.log(user);
   return {
     props: {
       user,
